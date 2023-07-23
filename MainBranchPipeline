@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy on Production server') {
             steps {
                 sshagent(['key'])  {
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@44.203.50.135/home/ubuntu/deployProd.sh'
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@44.203.50.135 /home/ubuntu/deployProd.sh'
 	
                 }
             }
