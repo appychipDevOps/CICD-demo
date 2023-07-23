@@ -31,8 +31,8 @@ pipeline {
         
         stage('Deploy on Production server') {
             steps {
-                sshagent(['stage'])  {
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.174.105.11 /home/ubuntu/deployProd.sh'
+                sshagent(['key'])  {
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@44.203.50.135/home/ubuntu/deployProd.sh'
 	
                 }
             }
@@ -42,7 +42,7 @@ pipeline {
           steps {
                 script{
                 sleep 5
-                def responseCode = sh(script: 'curl -I http://54.174.105.11:4000/', returnStdout: true).trim()
+                def responseCode = sh(script: 'curl -I http://44.203.50.135.11:4000/', returnStdout: true).trim()
                  def responseCodeNumber = responseCode.substring(9, 12)
                     echo 'The response code is: ' + responseCodeNumber
                   if (responseCodeNumber == '200') {
