@@ -14,7 +14,7 @@ pipeline {
         stage('Building') {
             steps {
               cleanWs()
-              git branch: 'main', url:'https://github.com/VinayakSingoriya/multibranchPipelineTest.git'
+              git branch: 'main', url:'https://github.com/appychipDevOps/CICD-demo.git'
               sh '''
               npm install
               '''

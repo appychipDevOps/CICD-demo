@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
               cleanWs()
-              git branch: 'feature', url:'https://github.com/VinayakSingoriya/multibranchPipelineTest.git'
+              git branch: 'feature', url:'https://github.com/appychipDevOps/CICD-demo.git'
               sh '''
               npm install
               npm test test.js
