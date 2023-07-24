@@ -35,7 +35,7 @@ pipeline {
 	                    input message: 'Do you want to approve the deployment?', ok: 'Yes'
 	                }
                 sshagent(['key'])  {
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@44.203.50.135 /home/ubuntu/deployProd.sh'
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.238.43.245 /home/ubuntu/deployProd.sh'
 	
                 }
             }
@@ -45,7 +45,7 @@ pipeline {
           steps {
                 script{
                 sleep 5
-                def responseCode = sh(script: 'curl -I http://44.203.50.135:4000/', returnStdout: true).trim()
+                def responseCode = sh(script: 'curl -I http://34.238.43.245:4000/', returnStdout: true).trim()
                  def responseCodeNumber = responseCode.substring(9, 12)
                     echo 'The response code is: ' + responseCodeNumber
                   if (responseCodeNumber == '200') {

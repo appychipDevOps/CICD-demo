@@ -31,7 +31,7 @@ pipeline {
             }
             steps {
                 sshagent(['key'])  {
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@44.204.162.47 /home/ubuntu/deployStaging.sh' 	
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.94.10.225 /home/ubuntu/deployStaging.sh' 	
                 }
             }
         }
@@ -43,7 +43,7 @@ pipeline {
           steps {
                 script{
                 sleep 5
-                def responseCode = sh(script: 'curl -I http://44.204.162.47:4000/', returnStdout: true).trim()
+                def responseCode = sh(script: 'curl -I http://3.94.10.225:4000/', returnStdout: true).trim()
                  def responseCodeNumber = responseCode.substring(9, 12)
                     echo 'The response code is: ' + responseCodeNumber
                   if (responseCodeNumber == '200') {
